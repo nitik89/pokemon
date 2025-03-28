@@ -32,7 +32,7 @@ const Pokemon = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (search) fetchPokemon(search);
+    if (search) setSearch(search);
   };
 
   const navigatePokemon = (offset) => {
@@ -40,7 +40,6 @@ const Pokemon = () => {
       const newId = pokemon.id + offset;
       if (newId > 0) {
         setSearch(newId.toString());
-        fetchPokemon(newId);
       }
     }
   };
