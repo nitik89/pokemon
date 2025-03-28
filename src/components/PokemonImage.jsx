@@ -2,29 +2,100 @@ import React from "react";
 
 const PokemonImage = ({ pokemon }) => {
   return (
-    <div className="border p-5 rounded shadow-md w-80 text-center bg-white">
-      <img
-        src={pokemon.sprites.front_default}
-        alt={pokemon.name}
-        className="mx-auto w-32 h-32"
-      />
-      <h2 className="text-2xl font-bold capitalize mt-2">{pokemon.name}</h2>
-      <p className="text-gray-700 mt-2">
+    <div
+      style={{
+        border: "1px solid #ccc",
+        padding: "24px",
+        borderRadius: "8px",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        width: "300px",
+        textAlign: "center",
+        background: "linear-gradient(to bottom right, #dbeafe, #93c5fd)",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "white",
+          borderRadius: "50%",
+          padding: "8px",
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+          display: "inline-block",
+        }}
+      >
+        <img
+          src={pokemon.sprites.front_default}
+          alt={pokemon.name}
+          style={{
+            display: "block",
+            margin: "auto",
+            width: "100px",
+            height: "100px",
+          }}
+        />
+      </div>
+      <h2
+        style={{
+          fontSize: "20px",
+          fontWeight: "bold",
+          textTransform: "capitalize",
+          marginTop: "16px",
+          color: "#1f2937",
+        }}
+      >
+        {pokemon.name}
+      </h2>
+      <p style={{ color: "#374151", marginTop: "8px", fontSize: "16px" }}>
         Type:{" "}
-        <span className="font-semibold">
+        <span style={{ fontWeight: "bold", color: "#111827" }}>
           {pokemon.types.map((t) => t.type.name).join(", ")}
         </span>
       </p>
-      <div className="mt-4">
-        <h3 className="text-lg font-semibold">Stats:</h3>
-        <ul className="text-gray-600 mt-2 space-y-1">
+      <div
+        style={{
+          marginTop: "16px",
+          padding: "16px",
+          backgroundColor: "white",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <h3 style={{ fontSize: "18px", fontWeight: "bold", color: "#1f2937" }}>
+          Stats
+        </h3>
+        <ul
+          style={{
+            color: "#4b5563",
+            marginTop: "12px",
+            listStyle: "none",
+            padding: 0,
+          }}
+        >
           {pokemon.stats.map((stat) => (
             <li
               key={stat.stat.name}
-              className="flex justify-between border-b py-1"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                borderBottom: "1px solid #e5e7eb",
+                padding: "8px 16px",
+                backgroundColor: "#f9fafb",
+                borderRadius: "4px",
+                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.05)",
+                marginBottom: "8px",
+              }}
             >
-              <span className="capitalize">{stat.stat.name}</span>
-              <span className="font-semibold">{stat.base_stat}</span>
+              <span
+                style={{
+                  textTransform: "capitalize",
+                  fontWeight: "500",
+                  color: "#1f2937",
+                }}
+              >
+                {stat.stat.name}
+              </span>
+              <span style={{ fontWeight: "bold", color: "#111827" }}>
+                {stat.base_stat}
+              </span>
             </li>
           ))}
         </ul>

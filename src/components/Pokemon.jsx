@@ -1,81 +1,96 @@
-import React, { useEffect, useState } from "react";
-import Search from "./Search";
+import React, { useState, useEffect } from "react";
 import PokemonImage from "./PokemonImage";
 
-const Pokemon = () => {
+const PokemonSearch = () => {
+  const [search, setSearch] = useState(1);
   const [pokemon, setPokemon] = useState(null);
-  const [search, setSearch] = useState("1");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+
   useEffect(() => {
-    if (search.length > 0) {
-      fetchPokemon(search);
+    const fetchPokemon = async () => {
+      try {
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${search}`
+        );
+        if (!response.ok) throw new Error("Pokemon not found");
+        const data = await response.json();
+        setPokemon(data);
+      } catch (error) {
+        setPokemon(null);
+      }
+    };
+    if (search) {
+      fetchPokemon();
     }
   }, [search]);
 
-  const fetchPokemon = async (query) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`
-      );
-      if (!res.ok) throw new Error("Pokémon not found");
-      const data = await res.json();
-      setPokemon(data);
-    } catch (err) {
-      setError(err.message);
-      setPokemon(null);
-    }
-    setLoading(false);
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (search) setSearch(search);
-  };
-
-  const navigatePokemon = (offset) => {
-    if (pokemon) {
-      const newId = pokemon.id + offset;
-      if (newId > 0) {
-        setSearch(newId.toString());
-      }
-    }
-  };
+  const handlePrev = () => setSearch((prev) => Math.max(1, prev - 1));
+  const handleNext = () => setSearch((prev) => prev + 1);
 
   return (
-    <div className="flex flex-col items-center p-5">
-      <h1 className="text-2xl font-bold mb-4">Pokédex</h1>
-      <form onSubmit={handleSearch} className="mb-4">
-        <Search search={search} setSearch={setSearch} />
-      </form>
-
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-500">{error}</p>}
-
-      {pokemon && (
-        <div className="border p-5 rounded shadow-md w-80 text-center">
-          <PokemonImage pokemon={pokemon} />
-          <div className="mt-4 flex justify-between">
-            <button
-              onClick={() => navigatePokemon(-1)}
-              className="bg-gray-500 text-white px-4 py-2 rounded"
-              disabled={pokemon.id === 1}
-            >
-              Previous
-            </button>
-            <button
-              onClick={() => navigatePokemon(1)}
-              className="bg-gray-500 text-white px-4 py-2 rounded"
-            >
-              Next
-            </button>
-          </div>
-        </div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "24px",
+        backgroundColor: "#f3f4f6",
+        minHeight: "100vh",
+      }}
+    >
+      <h1
+        style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px" }}
+      >
+        Pokémon Search
+      </h1>
+      <input
+        type="text"
+        placeholder="Enter Pokémon name or ID"
+        value={search}
+        onChange={(e) => setSearch(e.target.value.toLowerCase())}
+        style={{
+          marginBottom: "16px",
+          padding: "8px",
+          border: "1px solid #ccc",
+          borderRadius: "4px",
+          width: "200px",
+          textAlign: "center",
+        }}
+      />
+      {pokemon && search ? (
+        <PokemonImage pokemon={pokemon} />
+      ) : (
+        <p>Pokemon not found</p>
       )}
+      <div style={{ marginTop: "16px", display: "flex", gap: "16px" }}>
+        <button
+          onClick={handlePrev}
+          style={{
+            padding: "8px 16px",
+            backgroundColor: "#3b82f6",
+            color: "white",
+            borderRadius: "4px",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          Previous
+        </button>
+        <button
+          onClick={handleNext}
+          style={{
+            padding: "8px 16px",
+            backgroundColor: "#3b82f6",
+            color: "white",
+            borderRadius: "4px",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
 
-export default Pokemon;
+export default PokemonSearch;
