@@ -23,8 +23,8 @@ const PokemonSearch = () => {
     }
   }, [search]);
 
-  const handlePrev = () => setSearch((prev) => Math.max(1, prev - 1));
-  const handleNext = () => setSearch((prev) => prev + 1);
+  const handlePrev = () => setSearch((prev) => Math.max(1, parseInt(prev) - 1));
+  const handleNext = () => setSearch((prev) => parseInt(prev) + 1);
 
   return (
     <div
