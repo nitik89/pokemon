@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-02T07:17:56.516Z",
+  "repo": {
+    "connectorId": 141,
+    "repoSlug": "nitik89/pokemon",
+    "baseBranch": "main"
+  },
+  "team": {
+    "assetId": 16348,
+    "displayId": "TM-1",
+    "name": "New team"
+  },
+  "tree": [
+    {
+      "assetId": 35051,
+      "displayId": "FD-3",
+      "name": "Arithmetic Operations and Evaluation",
+      "kind": "folder",
+      "children": [
+        {
+          "assetId": 35057,
+          "displayId": "TC-23",
+          "name": "Verify basic addition operation",
+          "kind": "test-case",
+          "repoPath": "Arithmetic Operations and Evaluation/TC-23-Verify-basic-addition-operation.spec.ts"
+        },
+        {
+          "assetId": 35058,
+          "displayId": "TC-24",
+          "name": "Verify calculation logging in history",
+          "kind": "test-case",
+          "repoPath": "Arithmetic Operations and Evaluation/TC-24-Verify-calculation-logging-in-history.spec.ts"
+        },
+        {
+          "assetId": 35059,
+          "displayId": "TC-25",
+          "name": "Verify large number arithmetic",
+          "kind": "test-case",
+          "repoPath": "Arithmetic Operations and Evaluation/TC-25-Verify-large-number-arithmetic.spec.ts"
+        },
+        {
+          "assetId": 35060,
+          "displayId": "TC-26",
+          "name": "Verify memory store and recall functionality",
+          "kind": "test-case",
+          "repoPath": "Arithmetic Operations and Evaluation/TC-26-Verify-memory-store-and-recall-functionality.spec.ts"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "assetId": 35057,
+      "assetKind": "test-case",
+      "displayId": "TC-23",
+      "name": "Verify basic addition operation",
+      "repoPath": "Arithmetic Operations and Evaluation/TC-23-Verify-basic-addition-operation.spec.ts",
+      "parentAssetId": 35051
+    },
+    {
+      "assetId": 35058,
+      "assetKind": "test-case",
+      "displayId": "TC-24",
+      "name": "Verify calculation logging in history",
+      "repoPath": "Arithmetic Operations and Evaluation/TC-24-Verify-calculation-logging-in-history.spec.ts",
+      "parentAssetId": 35051
+    },
+    {
+      "assetId": 35059,
+      "assetKind": "test-case",
+      "displayId": "TC-25",
+      "name": "Verify large number arithmetic",
+      "repoPath": "Arithmetic Operations and Evaluation/TC-25-Verify-large-number-arithmetic.spec.ts",
+      "parentAssetId": 35051
+    },
+    {
+      "assetId": 35060,
+      "assetKind": "test-case",
+      "displayId": "TC-26",
+      "name": "Verify memory store and recall functionality",
+      "repoPath": "Arithmetic Operations and Evaluation/TC-26-Verify-memory-store-and-recall-functionality.spec.ts",
+      "parentAssetId": 35051
+    }
+  ]
+}
