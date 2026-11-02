@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-02T07:18:11.832Z",
+  "generatedAt": "2026-11-02T10:27:37.723Z",
   "repo": {
     "connectorId": 141,
     "repoSlug": "nitik89/pokemon",
@@ -47,6 +47,28 @@
           "repoPath": "Arithmetic Operations and Evaluation/TC-26-Verify-memory-store-and-recall-functionality.spec.ts"
         }
       ]
+    },
+    {
+      "assetId": 35062,
+      "displayId": "FD-4",
+      "name": "Calculator Input and Formatting",
+      "kind": "folder",
+      "children": [
+        {
+          "assetId": 35066,
+          "displayId": "TC-31",
+          "name": "Keyboard input blocked for invalid characters",
+          "kind": "test-case",
+          "repoPath": "Calculator Input and Formatting/TC-31-Keyboard-input-blocked-for-invalid-characters.spec.ts"
+        }
+      ]
+    },
+    {
+      "assetId": 24943,
+      "displayId": "TC-10",
+      "name": "Microsoft Login",
+      "kind": "test-case",
+      "repoPath": "TC-10-Microsoft-Login.spec.ts"
     }
   ],
   "files": [
@@ -81,6 +103,22 @@
       "name": "Verify memory store and recall functionality",
       "repoPath": "Arithmetic Operations and Evaluation/TC-26-Verify-memory-store-and-recall-functionality.spec.ts",
       "parentAssetId": 35051
+    },
+    {
+      "assetId": 35066,
+      "assetKind": "test-case",
+      "displayId": "TC-31",
+      "name": "Keyboard input blocked for invalid characters",
+      "repoPath": "Calculator Input and Formatting/TC-31-Keyboard-input-blocked-for-invalid-characters.spec.ts",
+      "parentAssetId": 35062
+    },
+    {
+      "assetId": 24943,
+      "assetKind": "test-case",
+      "displayId": "TC-10",
+      "name": "Microsoft Login",
+      "repoPath": "TC-10-Microsoft-Login.spec.ts",
+      "parentAssetId": 16348
     }
   ]
 }
